@@ -9,7 +9,7 @@ ASSETS_DIR=assets
 SFML_LIB_DIR=API/SFML/lib_linux_shared
 
 # Includes
-INCLUDES=-I API/SFML/include
+INCLUDES=
 
 # Target specific include files
 _INCLUDES=
@@ -21,7 +21,7 @@ release : _CFLAGS=-O2
 
 #Flags
 CFLAGS=-Wall -Wextra
-LDFLAGS=-L $(SFML_LIB_DIR) -lsfml-graphics -lsfml-window -lsfml-system
+LDFLAGS=-framework sfml-graphics -framework sfml-window -framework sfml-system
 
 # Output and sources
 EXECUTABLE=bin
