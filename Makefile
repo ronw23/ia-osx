@@ -24,11 +24,10 @@ CFLAGS=-Wall -Wextra
 LDFLAGS=-framework sfml-graphics -framework sfml-window -framework sfml-system
 
 # Output and sources
-EXECUTABLE=bin
+EXECUTABLE=ia
 SOURCES=$(shell ls $(SRC_DIR)/*.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
 OBJECTS_STAMP_FILE=obj_stamp
-RUN_GAME_SCRIPT=ia
 
 # Various bash commands
 RM=rm -rf
@@ -53,8 +52,6 @@ $(EXECUTABLE): $(OBJECTS_STAMP_FILE)
 	$(MKDIR) $(TARGET_DIR)
 	$(MV) $(EXECUTABLE) $(TARGET_DIR)
 	$(CP) $(ASSETS_DIR)/* $(TARGET_DIR)
-	echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(SFML_LIB_DIR) ./$(EXECUTABLE)" > $(TARGET_DIR)/$(RUN_GAME_SCRIPT)
-	chmod 777 $(TARGET_DIR)/$(RUN_GAME_SCRIPT)
 
 .PHONY: $(OBJECTS_STAMP_FILE)
 $(OBJECTS_STAMP_FILE): $(SOURCES)
